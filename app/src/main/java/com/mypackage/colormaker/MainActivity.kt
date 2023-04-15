@@ -3,21 +3,23 @@
 //Email:pradhatrivemula@csu.fullerton.edu
 
 package com.mypackage.colormaker
+import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import com.google.android.material.slider.Slider
-import java.math.RoundingMode
 import java.text.DecimalFormat
-import android.text.Editable
-import android.text.TextWatcher
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,13 @@ class MainActivity : AppCompatActivity() {
         val colorMaker= findViewById(R.id.colorMaker) as View
         val df = DecimalFormat("#.##") // to limit the edit text values to two decimal places
 
+        var blue=0.0F
+        var green=0.0F
+        var red=0.0F
+
+        greenSliderVal.setText("0")
+        redSliderVal.setText("0")
+        blueSliderVal.setText("0")
 
         // reset all values to zero
         button?.setOnClickListener()
@@ -64,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         greenSliderVal.doOnTextChanged { text, start, before, count ->
            try {
                val value = greenSliderVal.text.toString().toFloat()
+
                if(value>=0 &&value <=1){
                    greenSlider.value=value //syncing slider value with the edit text value
                }
@@ -72,6 +82,10 @@ class MainActivity : AppCompatActivity() {
                Toast.makeText(this@MainActivity,"Enter a value between 0 and 1", Toast.LENGTH_LONG).show()
            }
         }
+        blueSliderVal.addTextChangedListener(CheckPercentage())
+        greenSliderVal.addTextChangedListener(CheckPercentage())
+        redSliderVal.addTextChangedListener(CheckPercentage())
+
 
         //if blue text value is changed
         blueSliderVal.doOnTextChanged { text, start, before, count ->
@@ -140,26 +154,48 @@ class MainActivity : AppCompatActivity() {
 
         //if blue switch is checked / unchecked
         blueSwitch?.setOnCheckedChangeListener({ _ , isChecked ->
-            if (isChecked) blueSlider.isEnabled=true
+            if (isChecked) {
+                blueSlider.isEnabled = true
+                blueSliderVal.isEnabled=true
+                blueSlider.value= blue
+                blueSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.blueslider_enabled_color))
+                blueSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.blueslider_track_color))
+
+            }
             else {
                 val z=0;
+                blue=blueSlider.value
                 blueSlider.isEnabled = false
                 blueSlider.value=0.0F
                 blueSliderVal.setText(z.toString())
                 blueSliderVal.isEnabled=false
+                blueSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
+                blueSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
+
             }
         })
 
         //if green switch is checked / unchecked
         greenSwitch?.setOnCheckedChangeListener({ _ , isChecked ->
-            if (isChecked) greenSlider.isEnabled=true
+            if (isChecked) {
+                greenSlider.isEnabled = true
+                greenSliderVal.isEnabled=true
+                greenSlider.value=green
+                greenSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.greenslider_enabled_color))
+                greenSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.greenslider_track_color))
+
+            }
             else {
                 val z=0;
+                green=greenSlider.value
                 greenSlider.isEnabled = false
 
                 greenSlider.value=0.0F
                 greenSliderVal.setText(z.toString())
                 greenSliderVal.isEnabled=false
+                greenSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
+                greenSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
+
 
             }
         })
@@ -168,16 +204,40 @@ class MainActivity : AppCompatActivity() {
         redSwitch?.setOnCheckedChangeListener({ _ , isChecked ->
             if (isChecked) {
                 redSlider.isEnabled = true
+                redSliderVal.isEnabled=true
+                redSlider.value=red
+                redSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.redslider_enabled_color))
+                redSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.redslider_track_color))
             }
             else {
                 val z=0;
+                red=redSlider.value
                 redSlider.isEnabled = false
                 redSlider.value=0.0F
                 redSliderVal.setText(z.toString())
                 redSliderVal.isEnabled=false
+                redSlider.thumbTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
+                redSlider.trackTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.seekbar_disabled_color))
             }
         })
 
     }
+    internal class CheckPercentage : TextWatcher {
+        override fun afterTextChanged(s: Editable) {
+            try {
+             //   Log.d("Percentage", "input: $s")
+                if (s.toString().toInt() > 1) s.replace(0, s.length, "1")
+            } catch (nfe: NumberFormatException) {
+            }
+        }
 
+        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
+            // Not used, details on text just before it changed
+            // used to track in detail changes made to text, e.g. implement an undo
+        }
+
+        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+            // Not used, details on text at the point change made
+        }
+    }
 }

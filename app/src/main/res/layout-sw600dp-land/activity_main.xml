@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Name: Pradhatri Vemula-->
+<!-- CWID: 885211540-->
+<!-- Email:pradhatrivemula@csu.fullerton.edu-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/textView"
+        android:layout_width="426dp"
+        android:layout_height="110dp"
+        android:text="Color Maker"
+        android:textColor="#CF688B"
+        android:textSize="75sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.018" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/redSwitch"
+        android:layout_width="215dp"
+        android:layout_height="123dp"
+        android:background="#FFFFFF"
+        android:checked="true"
+
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="R"
+        android:textColor="#D62920"
+        android:textOff="Off"
+        android:textOn="On"
+
+
+        android:textSize="48sp"
+        android:theme="@style/redSwitch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.453" />
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/greenSwitch"
+        android:layout_width="215dp"
+        android:layout_height="104dp"
+        android:background="#FFFFFF"
+        android:checked="true"
+
+
+        android:gravity="center"
+        android:padding="20dp"
+
+        android:text="G"
+        android:textColor="#08A510"
+        android:textOff="Off"
+        android:textOn="On"
+
+        android:textSize="48sp"
+        android:theme="@style/greenSwitch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.641" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/blueSwitch"
+        android:layout_width="210dp"
+        android:layout_height="120dp"
+        android:background="#FFFFFF"
+        android:checked="true"
+
+
+        android:gravity="center"
+        android:padding="20dp"
+
+        android:text="B"
+        android:textColor="#0126F6"
+        android:textOff="Off"
+        android:textOn="On"
+
+        android:textSize="48sp"
+        android:theme="@style/blueSwitch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.81"
+
+
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="250dp"
+        android:layout_height="115dp"
+        android:background="#CF688B"
+        android:text="RESET"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.965" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/redSlider"
+        android:layout_width="278dp"
+        android:layout_height="82dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.471"
+        app:thumbColor="#D62920"
+        app:thumbRadius="20dp"
+        app:trackColor="#E3A3A3"
+        app:trackHeight="7dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/greenSlider"
+        android:layout_width="273dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.608"
+        app:thumbColor="#08A510"
+        app:thumbRadius="20dp"
+        app:trackColor="#D5F4B2"
+        app:trackHeight="7dp" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/blueSlider"
+        android:layout_width="277dp"
+        android:layout_height="93dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773"
+        app:thumbColor="#0126F6"
+        app:thumbRadius="20dp"
+        app:trackColor="#B6BEE8"
+        app:trackHeight="7dp" />
+
+    <EditText
+        android:id="@+id/redSliderVal"
+        android:layout_width="190dp"
+        android:layout_height="100dp"
+        android:contentDescription="Enter Red value B/W 0 and 1 "
+        android:ems="10"
+        android:hint="  0.0 to 1"
+        android:inputType="text"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.456" />
+
+    <EditText
+        android:id="@+id/greenSliderVal"
+        android:layout_width="190dp"
+        android:layout_height="100dp"
+        android:contentDescription="0"
+        android:ems="10"
+        android:hint="  0.0 to 1"
+        android:inputType="text"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.891"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.605" />
+
+    <EditText
+        android:id="@+id/blueSliderVal"
+        android:layout_width="190dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:hint="  0.0 to 1"
+        android:inputType="text"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.766" />
+
+    <View
+        android:id="@+id/colorMaker"
+        android:layout_width="832dp"
+        android:layout_height="124dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.20" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

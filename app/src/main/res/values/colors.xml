@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="seekbar_disabled_color">#8D8989</color>
+    <color name="redslider_enabled_color">#D62920</color>
+    <color name="greenslider_enabled_color">#08A510</color>
+    <color name="blueslider_enabled_color">#0126F6</color>
+    <color name="redslider_track_color">#E3A3A3</color>
+    <color name="greenslider_track_color">#D5F4B2</color>
+    <color name="blueslider_track_color">#B6BEE8</color>
+
 </resources>
